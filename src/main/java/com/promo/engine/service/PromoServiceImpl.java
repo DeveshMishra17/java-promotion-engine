@@ -12,17 +12,17 @@ public class PromoServiceImpl implements PromoService {
         if (cartItem == null || cartItem.isEmpty())
             return 0;
 
-        Integer item1 = getSingleItemPrice("A", cartItem.get("A"));
+        Integer item1 = getSingleItemPrice(UnitConstants.ITEM_A, cartItem.get(UnitConstants.ITEM_A));
 
-        Integer item2 = getSingleItemPrice("B", cartItem.get("B"));
+        Integer item2 = getSingleItemPrice(UnitConstants.ITEM_B, cartItem.get(UnitConstants.ITEM_B));
 
         Integer item3 = 0;
 
-        if (cartItem.keySet().contains("D") && cartItem.get("D") > 0) {
+        if (cartItem.keySet().contains(UnitConstants.ITEM_D) && cartItem.get(UnitConstants.ITEM_D) > 0) {
 
-            item3 = getCombinedItemPrice(cartItem.get("C"));
+            item3 = getCombinedItemPrice(cartItem.get(UnitConstants.ITEM_C));
         } else {
-            item3 = getSingleItemPrice("C", cartItem.get("C"));
+            item3 = getSingleItemPrice(UnitConstants.ITEM_C, cartItem.get(UnitConstants.ITEM_C));
         }
 
         return item1 + item2 + item3;
@@ -34,7 +34,7 @@ public class PromoServiceImpl implements PromoService {
      * @return fixed price for combined items
      */
     private Integer getCombinedItemPrice(int quantity) {
-        return UnitConstants.COMBINED_PROMO_OFFER.get("Promo1").getFinalPrice() * quantity;
+        return UnitConstants.COMBINED_PROMO_OFFER.get(UnitConstants.PROMO_1).getFinalPrice() * quantity;
     }
 
     /*
@@ -69,22 +69,22 @@ public class PromoServiceImpl implements PromoService {
 
         int itemPrice = 0;
 
-        if ("A".equalsIgnoreCase(item)) {
+        if (UnitConstants.ITEM_A.equalsIgnoreCase(item)) {
 
             itemPrice = calculateItemPrice(item, quantity, UnitConstants.SINGLE_ACTIVE_OFFER.get(item).getQuantity(),
                     itemPrice);
 
-        } else if ("B".equalsIgnoreCase(item)) {
+        } else if (UnitConstants.ITEM_B.equalsIgnoreCase(item)) {
 
             itemPrice = calculateItemPrice(item, quantity, UnitConstants.SINGLE_ACTIVE_OFFER.get(item).getQuantity(),
                     itemPrice);
 
-        } else if ("C".equalsIgnoreCase(item)) {
+        } else if (UnitConstants.ITEM_C.equalsIgnoreCase(item)) {
 
             itemPrice = calculateItemPrice(item, quantity, UnitConstants.SINGLE_ACTIVE_OFFER.get(item).getQuantity(),
                     itemPrice);
 
-        } else if ("D".equalsIgnoreCase(item)) {
+        } else if (UnitConstants.ITEM_D.equalsIgnoreCase(item)) {
 
             itemPrice = calculateItemPrice(item, quantity, UnitConstants.SINGLE_ACTIVE_OFFER.get(item).getQuantity(),
                     itemPrice);
