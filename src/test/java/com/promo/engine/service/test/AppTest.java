@@ -8,6 +8,7 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.promo.engine.constants.UnitConstants;
 import com.promo.engine.service.PromoService;
 import com.promo.engine.service.PromoServiceImpl;
 
@@ -24,22 +25,20 @@ public class AppTest {
     @Before
     public void init() {
        
-        itemCart1.put("A", 1);
-        itemCart1.put("B", 1);
-        itemCart1.put("C", 1);
-        itemCart1.put("D", 0);
+        itemCart1.put(UnitConstants.ITEM_A, 1);
+        itemCart1.put(UnitConstants.ITEM_B, 1);
+        itemCart1.put(UnitConstants.ITEM_C, 1);
 
        
-        itemCart2.put("A", 5);
-        itemCart2.put("B", 5);
-        itemCart2.put("C", 1);
-        itemCart2.put("D", 0);
+        itemCart2.put(UnitConstants.ITEM_A, 5);
+        itemCart2.put(UnitConstants.ITEM_B, 5);
+        itemCart2.put(UnitConstants.ITEM_C, 1);
         
      
-        itemCart3.put("A", 3);
-        itemCart3.put("B", 5);
-        itemCart3.put("C", 1);
-        itemCart3.put("D", 1);
+        itemCart3.put(UnitConstants.ITEM_A, 3);
+        itemCart3.put(UnitConstants.ITEM_B, 5);
+        itemCart3.put(UnitConstants.ITEM_C, 1);
+        itemCart3.put(UnitConstants.ITEM_D, 1);
     }
 
     @Test
